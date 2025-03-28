@@ -44,7 +44,7 @@ The **Virtual Environment Candlestick Analysis** project simulates a real-time d
 ---
 
 ## Steps to Run the Project
-
+### Backend code is in main branch 
 ### **1. Install Dependencies**
 Ensure you have Python `3.7+` and install the required dependencies:
 ```sh
