@@ -79,6 +79,16 @@ python real_time_feed.py
 ### **Mentor Feedback**
 - Suggested splitting pattern detection into **eight specialized sub-agents**.
 
+🟢 Before Optimization
+A single sub-agent managed all candlestick pattern detections.
+
+The workflow became crowded and inefficient.
+
+🔵 After Mentor Feedback
+✅ Split into 8 sub-agents, each focusing on one pattern.
+✅ Improved efficiency by distributing workload.
+✅ Reduced system crowding and improved performance.
+
 ### **Outcome**
 - **Reduced system complexity**
 - **Improved scalability and efficiency**
