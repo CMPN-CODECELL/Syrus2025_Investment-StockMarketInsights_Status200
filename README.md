@@ -1,81 +1,22 @@
-# Automated Trading System
+# UptiqAgent - Automated Candlestick Pattern Detection
 
 ## Overview
-The **Virtual Environment Candlestick Analysis** project simulates a real-time data feed and computes confidence scores for **NIFTY_50** candlestick patterns. This system was developed as an alternative to the **UPITQ agent API**, which was inaccessible via the console. It provides a structured approach to evaluating market trends by analyzing candlestick formations and generating confidence scores.
+Market prediction through human pattern detection is often imprecise, as many patterns go unnoticed, leading to missed opportunities and potential losses. **UptiqAgent** automates this process by using statistical analysis on candlestick charts across multiple timeframes, generating a confidence score (-1 to 1) that indicates market movement trends.
 
----
+## Features
+- **Automated Pattern Detection**: Identifies 8 different candlestick patterns.
+- **Multi-Timeframe Analysis**: Works on 5-minute, 15-minute, and 60-minute timeframes.
+- **Confidence Scoring**: Computes a final confidence score using weighted averages.
+- **Optimized for Traders**: Useful for intraday traders and algorithmic trading.
 
-## Key Features
+## Workflow
+1. **Data Input**: The system receives data through the UptiqAgent module.
+2. **Timeframe Splitting**: The data is split into three timeframes - 5 min, 15 min, and 60 min.
+3. **Pattern Recognition**: Each timeframe runs an 8-pattern resemblance algorithm to generate a score (-1 to 1, bearish to bullish).
+4. **Normalization**: Scores are processed using the max-min method to standardize values.
+5. **Final Confidence Score**: All three scores are combined with weighted averaging to produce a final prediction score for each timestamp.
 
-### 1. **Modular Sub-Agent Design**
-- **Eight Sub-Agents:** Each sub-agent specializes in detecting a specific candlestick pattern (e.g., Bullish Engulfing, Bearish Engulfing, Morning Star, etc.).
-- **Task Distribution:** The workload is divided among multiple agents, reducing system complexity and improving maintainability.
-- **Confidence Scores:** Each pattern-specific sub-agent calculates an individual confidence score, contributing to an overall **market sentiment indicator**.
-
-### 2. **Real-Time Data Simulation**
-- The script `real_time_feed.py` **simulates live market data flow** by appending new records from `dataset.csv` to `NIFTY_50_minute_data.csv` every second.
-- The system automatically triggers `pattern_detection` at scheduled intervals to analyze the updated data and compute confidence scores.
-
-### 3. **Candlestick Pattern Analysis**
-- Individual scripts implement mathematical techniques to detect specific candlestick formations.
-- Scores are **normalized** within a range of `[-1, 1]` to represent bullish or bearish strength effectively.
-
----
-
-## System Workflow
-
-### **1. Data Streaming**
-- uptiq reads records from  the `dataset` **one at a time**.
-- Every second, a new row is added to `NIFTY_50_minute_data.csv`.
-
-### **2. Pattern Detection**
-- After a predefined interval (e.g., every 10 seconds), a `pattern_detection` algorithm is triggered.
-- The script **analyzes the latest data**, applies pattern recognition logic, and updates the confidence scores.
-
-### **3. Confidence Score Calculation**
-- Each sub-agent assigns a **partial score**:
-  - `0 to 1` for **bullish** patterns.
-  - `-1 to 0` for **bearish** patterns.
-- Scores are aggregated over different timeframes (e.g., `5, 15, 60 minutes`) using a **weighted average**.
-- The final confidence score indicates **market sentiment**:
-  - `-1` = Strongly Bearish
-  - `+1` = Strongly Bullish
-
----
-
-
-
----
-
-## Mentoring Insights and Improvements
-
-### **Initial Approach**
-- A **single sub-agent** managed all pattern detections, which led to **increased complexity** and system bottlenecks.
-
-### **Mentor Feedback**
-- Suggested splitting pattern detection into **eight specialized sub-agents**.
-
-🟢 Before Optimization
-A single sub-agent managed all candlestick pattern detections.
-
-The workflow became crowded and inefficient.
-
-🔵 After Mentor Feedback
-✅ Split into 8 sub-agents, each focusing on one pattern.
-✅ Improved efficiency by distributing workload.
-✅ Reduced system crowding and improved performance.
-
-### **Outcome**
-- **Reduced system complexity**
-- **Improved scalability and efficiency**
-- **Streamlined workflow for better pattern recognition**
-
----
-
-## Conclusion
-This project provides a **structured and efficient** way to simulate real-time market data and analyze candlestick patterns. By leveraging a modular approach with dedicated sub-agents, it enhances maintainability and accuracy in predicting market sentiment.
-
-For any queries or contributions, feel free to explore the repository and suggest improvements!
-
----
-
+## Target Audience
+- **Day Traders & Scalpers**: Helps make quick and informed trading decisions.
+- **Algorithmic Traders**: Can integrate scores into automated trading systems.
+- **Retail Investors**: Provides insights to enhance trading strategies.
