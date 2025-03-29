@@ -1,7 +1,7 @@
 # UptiqAgent - Automated Candlestick Pattern Detection
 
 # Youtube demo link 
-https://www.youtube.com/watch?v=fa24yLdfSRE
+https://youtu.be/nUIcvf3UgUo
 
 ## Overview
 Market prediction through human pattern detection is often imprecise, as many patterns go unnoticed, leading to missed opportunities and potential losses. **UptiqAgent** automates this process by using statistical analysis on candlestick charts across multiple timeframes, generating a confidence score (-1 to 1) that indicates market movement trends.
