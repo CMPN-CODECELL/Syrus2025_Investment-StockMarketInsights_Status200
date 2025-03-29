@@ -14,10 +14,10 @@ The **Virtual Environment Candlestick Analysis** project simulates a real-time d
 
 ### 2. **Real-Time Data Simulation**
 - The script `real_time_feed.py` **simulates live market data flow** by appending new records from `dataset.csv` to `NIFTY_50_minute_data.csv` every second.
-- The system automatically triggers `pattern_detection.py` at scheduled intervals to analyze the updated data and compute confidence scores.
+- The system automatically triggers `pattern_detection` at scheduled intervals to analyze the updated data and compute confidence scores.
 
 ### 3. **Candlestick Pattern Analysis**
-- Individual scripts (e.g., `hammer.py`, `shooting_star.py`) implement mathematical techniques to detect specific candlestick formations.
+- Individual scripts implement mathematical techniques to detect specific candlestick formations.
 - Scores are **normalized** within a range of `[-1, 1]` to represent bullish or bearish strength effectively.
 
 ---
@@ -25,11 +25,11 @@ The **Virtual Environment Candlestick Analysis** project simulates a real-time d
 ## System Workflow
 
 ### **1. Data Streaming**
-- `real_time_feed.py` reads records from `dataset.csv` **one at a time**.
+- uptiq reads records from  the `dataset` **one at a time**.
 - Every second, a new row is added to `NIFTY_50_minute_data.csv`.
 
 ### **2. Pattern Detection**
-- After a predefined interval (e.g., every 10 seconds), `pattern_detection.py` is triggered.
+- After a predefined interval (e.g., every 10 seconds), a `pattern_detection` algorithm is triggered.
 - The script **analyzes the latest data**, applies pattern recognition logic, and updates the confidence scores.
 
 ### **3. Confidence Score Calculation**
@@ -43,31 +43,7 @@ The **Virtual Environment Candlestick Analysis** project simulates a real-time d
 
 ---
 
-## Steps to Run the Project
-### Backend code is in main branch 
-### **1. Install Dependencies**
-Ensure you have Python `3.7+` and install the required dependencies:
-```sh
-pip install pandas numpy
-```
 
-### **2. Navigate to the Project Directory**
-```sh
-cd /path/to/project
-```
-
-### **3. Start the Real-Time Feed**
-Run the following command:
-```sh
-python real_time_feed.py
-```
-- This script **appends new market data** to `NIFTY_50_minute_data.csv` every second.
-- It automatically triggers **pattern detection** at regular intervals.
-
-### **4. Monitor the Output**
-- Observe the **appended records** in the console.
-- Look for **messages** indicating updated confidence scores.
-- The final aggregated confidence scores are saved in `final_scores.csv`.
 
 ---
 
